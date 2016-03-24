@@ -27,6 +27,15 @@ RUN apt-get update &&\
 RUN adduser --quiet jenkins &&\
     echo "jenkins:jenkins" | chpasswd
 
+RUN mkdir -p /home/jenkins/.sbt/launchers/0.13.8/ &&\
+    wget -O /home/jenkins/.sbt/launchers/0.13.8/sbt-launch.jar https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.8/sbt-launch.jar
+
+RUN mkdir -p /home/jenkins/.sbt/launchers/0.13.7/ &&\
+    wget -O /home/jenkins/.sbt/launchers/0.13.7/sbt-launch.jar https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.7/sbt-launch.jar
+
+RUN mkdir -p /home/jenkins/.sbt/launchers/0.13.5/ &&\
+    wget -O /home/jenkins/.sbt/launchers/0.13.5/sbt-launch.jar https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.5/sbt-launch.jar
+
 # Standard SSH port
 EXPOSE 22
 
